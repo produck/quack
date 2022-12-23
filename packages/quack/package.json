@@ -38,5 +38,10 @@
 	},
 	"devDependencies": {
 		"rollup": "^3.8.0"
+	},
+	"dependencies": {
+		"@produck/mold": "^0.3.1",
+		"dateformat": "^5.0.3",
+		"streamroller": "^3.1.3"
 	}
 }
