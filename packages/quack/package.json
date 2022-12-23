@@ -1,0 +1,42 @@
+{
+	"name": "@produck/quack",
+	"version": "0.0.0",
+	"description": "Legacy logger solution from @produck/duck-log(&lt; v0.6.x).",
+	"author": "chaoslee <chaos2lee@qq.com>",
+	"keywords": [
+		"log",
+		"logger",
+		"duck"
+	],
+	"homepage": "https://github.com/produck/quack#readme",
+	"license": "MIT",
+	"main": "src/index.cjs",
+	"type": "module",
+	"exports": {
+		"import": "./src/index.mjs",
+		"require": "./src/index.cjs"
+	},
+	"types": "index.d.ts",
+	"files": [
+		"src",
+		"index.d.ts",
+		"tsconfig.json"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/produck/quack.git"
+	},
+	"scripts": {
+		"build": "rollup -c script/rollup.config.mjs",
+		"prepublishOnly": " npm run build"
+	},
+	"bugs": {
+		"url": "https://github.com/produck/quack/issues"
+	},
+	"devDependencies": {
+		"rollup": "^3.8.0"
+	}
+}
