@@ -13,9 +13,10 @@ export function StderrAppender() {
 }
 
 import os from 'node:os';
-import { RollingFileStream } from 'streamroller';
+import { createRequire } from 'node:module';
 import { Normalizer, P, S } from '@produck/mold';
 
+const { RollingFileStream } = createRequire(import.meta.url)('streamroller');
 const EOL = os.EOL || '\n';
 
 const FileAppenderSchema = S.Object({
