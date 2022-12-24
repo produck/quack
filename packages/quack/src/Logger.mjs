@@ -29,7 +29,7 @@ export class Logger {
 		const message = this.format(meta, messageObject);
 
 		if (!T.Native.String(message)) {
-			U.throwError('format() >> message', 'string');
+			U.throwError('format() => message', 'string');
 		}
 
 		const append = appender => appender(message);

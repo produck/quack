@@ -1,5 +1,5 @@
 import { Normalizer, P, S } from '@produck/mold';
-import * as Format from './Preset/index.mjs';
+import * as Format from './Format/index.mjs';
 import * as Appender from './Appender.mjs';
 
 export const Schema = S.Object({
