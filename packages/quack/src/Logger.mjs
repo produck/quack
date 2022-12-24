@@ -1,4 +1,4 @@
-import { Normalizer, P, S } from '@produck/mold';
+import { Normalizer, P, S, T, U } from '@produck/mold';
 
 import * as Options from './Options.mjs';
 
@@ -27,6 +27,11 @@ export class Logger {
 		}
 
 		const message = this.format(meta, messageObject);
+
+		if (!T.Native.String(message)) {
+			U.throwError('format() >> message', 'string');
+		}
+
 		const append = appender => appender(message);
 
 		await Promise.all(this.appenders.map(append));

@@ -1,3 +1,5 @@
+import { EOL } from 'node:os';
+
 export function ConsoleAppender() {
 	const consoleLog = console.log.bind(console);
 
@@ -5,19 +7,17 @@ export function ConsoleAppender() {
 }
 
 export function StdoutAppender() {
-	return message => process.stdout.write(message);
+	return message => process.stdout.write(message + EOL);
 }
 
 export function StderrAppender() {
-	return message => process.stderr.write(message);
+	return message => process.stderr.write(message + EOL);
 }
 
-import os from 'node:os';
 import { createRequire } from 'node:module';
 import { Normalizer, P, S } from '@produck/mold';
 
 const { RollingFileStream } = createRequire(import.meta.url)('streamroller');
-const EOL = os.EOL || '\n';
 
 const FileAppenderSchema = S.Object({
 	pathname: P.String(),

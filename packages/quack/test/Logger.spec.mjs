@@ -13,14 +13,14 @@ describe('Quack::Logger', function () {
 			const flag = [];
 
 			const logger = new Quack.Logger({
-				format: (meta, message) => [meta, message],
-				appenders: [(message) => flag.push(...message)],
+				format: (meta, message) => ([meta, message], ''),
+				appenders: [(message) => flag.push(message)],
 			});
 
 			const time = new Date();
 
 			await logger.log({ label: 'foo', time, level: 'info' }, 'bar');
-			assert.deepEqual(flag, [{ label: 'foo', time, level: 'info' }, 'bar']);
+			assert.deepEqual(flag, ['']);
 		});
 
 		it('should throw if bad meta.', async function () {
