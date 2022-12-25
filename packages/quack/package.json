@@ -42,6 +42,7 @@
 	},
 	"dependencies": {
 		"@produck/mold": "^0.3.1",
+		"@types/node": "^18.11.17",
 		"dateformat": "^5.0.3",
 		"streamroller": "^3.1.3"
 	}

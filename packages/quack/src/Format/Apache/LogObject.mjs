@@ -24,6 +24,8 @@ const OR_DASH = any => any ? any : '-';
 /**
  * SEE ALSO: https://httpd.apache.org/docs/2.4/mod/mod_log_config.html#formats
  */
+
+/* eslint-disable no-unused-vars */
 export class LogObject {
 	constructor(req, res) {
 		this.req = req;
