@@ -19,8 +19,6 @@ describe('Quack::Logger', function () {
 				appenders: [(message) => flag.push(message)],
 			});
 
-			const time = new Date();
-
 			await logger.log(meta, 'bar');
 			assert.deepEqual(flag, ['']);
 		});

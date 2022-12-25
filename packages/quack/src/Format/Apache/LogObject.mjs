@@ -44,7 +44,7 @@ export class LogObject {
 
 		const address = this.req.socket.remoteAddress;
 
-		if (underlying === false) {
+		if (!underlying) {
 			return address;
 		}
 
@@ -60,7 +60,9 @@ export class LogObject {
 	B() {
 		// Size of response in bytes, excluding HTTP headers.
 
-		return this.res.socket.writableLength;
+		const { socket } = this.res;
+
+		return socket === null ? 0 : socket.writableLength;
 	}
 
 	b() {
@@ -106,7 +108,7 @@ export class LogObject {
 
 		const address = this.req.socket.remoteAddress;
 
-		if (underlying === true) {
+		if (!underlying) {
 			return address;
 		}
 
@@ -213,7 +215,7 @@ export class LogObject {
 		TODO();
 	}
 
-	s(final = true) {
+	s(final = false) {
 		// Status. For requests that have been internally redirected, this is the
 		// status of the original request. Use %>s for the final status.
 

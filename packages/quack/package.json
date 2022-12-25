@@ -37,7 +37,8 @@
 		"url": "https://github.com/produck/quack/issues"
 	},
 	"devDependencies": {
-		"rollup": "^3.8.0"
+		"rollup": "^3.8.0",
+		"supertest": "^6.3.3"
 	},
 	"dependencies": {
 		"@produck/mold": "^0.3.1",
