@@ -14,10 +14,8 @@ export function StderrAppender() {
 	return message => process.stderr.write(message + EOL);
 }
 
-import { createRequire } from 'node:module';
+import Streamroller from 'streamroller';
 import { Normalizer, P, S } from '@produck/mold';
-
-const { RollingFileStream } = createRequire(import.meta.url)('streamroller');
 
 const FileAppenderSchema = S.Object({
 	pathname: P.String(),
@@ -38,7 +36,7 @@ export function RollingFileAppender(options) {
 		encoding, mode, flags, keepFileExt, compress,
 	} = normalizeFileAppenderOptions(options);
 
-	const stream = new RollingFileStream(pathname, size, number, {
+	const stream = new Streamroller.RollingFileStream(pathname, size, number, {
 		encoding, mode, flags, compress, keepFileExt,
 	});
 
