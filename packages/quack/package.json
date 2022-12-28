@@ -1,6 +1,6 @@
 {
 	"name": "@produck/quack",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Legacy logger solution from @produck/duck-log(&lt; v0.6.x).",
 	"author": "chaoslee <chaos2lee@qq.com>",
 	"keywords": [
