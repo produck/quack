@@ -7,25 +7,26 @@ interface Meta {
 	label: string;
 }
 
-export class Logger {
-	log(meta: Meta, messageObject: any): Promise<string>;
-}
-
-export type Appender = (message: string) => Promise<void> | void;
-export type Format<T = any> = (meta: Meta, messageObject: T) => string;
-export type Assert = (messageObject: any) => void;
-
 export namespace Options {
-	interface Options {
+	interface Object {
 		strict?: boolean;
 		format?: Format;
 		assert?: Assert;
 		appenders?: Array<Appender>
 	}
 
-	export const Schema: Schema<Options>;
-	export function normalize(options: Options): Options;
+	export const Schema: Schema<Object>;
+	export function normalize(options: Object): Object;
 }
+
+export class Logger {
+	constructor(options: Options.Object)
+	log(meta: Meta, messageObject: any): Promise<string>;
+}
+
+export type Appender = (message: string) => Promise<void> | void;
+export type Format<T = any> = (meta: Meta, messageObject: T) => string;
+export type Assert = (messageObject: any) => void;
 
 export namespace Appender {
 	export function ConsoleAppender(): Appender;
